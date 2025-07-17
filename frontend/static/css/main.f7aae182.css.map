@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.f7aae182.css","mappings":"AAAA,gBAME,gBAAuB,CADvB,WAAY,CAFZ,QAAS,CACT,SAGF","sources":["index.css"],"sourcesContent":["html,\nbody,\n#root {\n  margin: 0;\n  padding: 0;\n  height: 100%;\n  background: transparent; /* или другой фон, если хотите */\n}\n"],"names":[],"sourceRoot":""}
