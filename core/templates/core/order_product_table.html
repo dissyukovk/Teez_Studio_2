@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Список OrderProduct</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Список OrderProduct</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Штрихкод</th>
+                <th>Номер заказа</th>
+                <th>Дата</th>
+                <th>Статус</th>
+                <th>Накладная</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for op in order_products %}
+            <tr>
+                <td>{{ op.product.barcode }}</td>
+                <td>{{ op.order.OrderNumber }}</td>
+                <td>{% if op.order.date %}{{ op.order.date|date:"d.m.Y" }}{% else %}—{% endif %}</td>
+                <td>{% if op.product.move_status %}{{ op.product.move_status.name }}{% else %}—{% endif %}</td>
+                <td>{{ op.last_invoice_number|default:"—" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
